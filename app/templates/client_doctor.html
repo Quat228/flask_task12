@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  <div>
+    <h3>Список клиентов</h3>
+    <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">FullName</th>
+      <th scope="col">birth_date</th>
+      <th scope="col">inn</th>
+      <th scope="col">gender</th>
+      <th scope="col">phone</th>
+      <th scope="col">address</th>
+      <th scope="col">application_date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for client in clients %}
+    <tr>
+      <th scope="row">{{ client.id }}</th>
+      <td>{{ client.fullname }}</td>
+      <td>{{ client.birth_date }}</td>
+      <td>{{ client.inn }}</td>
+      <td>{{ client.gender }}</td>
+      <td>+{{ client.phone }}</td>
+      <td>{{ client.address }}</td>
+      <td>{{ client.application_date }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <a href="{{ url_for('client_add') }}" class="btn btn-success">Добавить</a>
+  </div>
+  <div>
+    <h3>Список докторов</h3>
+    <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">FullName</th>
+      <th scope="col">birth_date</th>
+      <th scope="col">specialty</th>
+      <th scope="col">experience</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for doctor in doctors %}
+    <tr>
+      <th scope="row">{{ doctor.id }}</th>
+      <td>{{ doctor.fullname }}</td>
+      <td>{{ doctor.birth_date }}</td>
+      <td>{{ doctor.specialty }}</td>
+      <td>{{ doctor.experience }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <a href="{{ url_for('doctor_add') }}" class="btn btn-success">Добавить</a>
+  </div>
+</div>
+{% endblock content %}
